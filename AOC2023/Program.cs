@@ -1,3 +1,3 @@
 ﻿using AOC2023;
 
-Console.WriteLine(Day3.Compute());
+Console.WriteLine(Day4.Compute());
