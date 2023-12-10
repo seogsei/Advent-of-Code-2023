@@ -1,3 +1,1 @@
-﻿using AOC2023;
-
-Console.WriteLine(Day9.Compute());
+﻿Console.WriteLine(AOC2023.Day10.Solution.Compute());
