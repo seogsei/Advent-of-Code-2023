@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Net.NetworkInformation;
-using System.Numerics;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
-namespace AOC2023.Day10
+namespace AOC2023
 {
-    internal static class Solution
+    internal static class Day10
     {
         public static long Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day10\Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day10Input.txt";
             using StreamReader dataStream = new(File.OpenRead(path));
 
             var map = ReadData(dataStream);
@@ -44,7 +35,7 @@ namespace AOC2023.Day10
             {
                 bool inside = false;
 
-                return line.Count((c) => 
+                return line.Count((c) =>
                 {
                     if (c == '|' || c == 'L' || c == 'J')
                         inside = !inside;
@@ -61,7 +52,7 @@ namespace AOC2023.Day10
             bool right = CanEnterPipe(Vector2Int.Right, map[startSquare.Y + Vector2Int.Right.Y][startSquare.X + Vector2Int.Right.X]);
             bool down = CanEnterPipe(Vector2Int.Down, map[startSquare.Y + Vector2Int.Down.Y][startSquare.X + Vector2Int.Down.X]);
 
-            if(up)
+            if (up)
             {
                 if (right)
                     return 'L';
@@ -94,9 +85,9 @@ namespace AOC2023.Day10
             } while (true);
         }
 
-        private static (int, int) Find(char c, string[] arr) 
+        private static (int, int) Find(char c, string[] arr)
         {
-            for (int j = 0; j< arr.Length; j++)
+            for (int j = 0; j < arr.Length; j++)
             {
                 int i = arr[j].IndexOf(c);
                 if (i != -1)
@@ -114,19 +105,19 @@ namespace AOC2023.Day10
         private static bool CanEnterPipe(Vector2Int direction, char pipe) => pipe switch
         {
             '|' => direction == Vector2Int.Up || direction == Vector2Int.Down,
-            '-' => direction == Vector2Int.Left|| direction == Vector2Int.Right,
+            '-' => direction == Vector2Int.Left || direction == Vector2Int.Right,
             'F' => direction == Vector2Int.Up || direction == Vector2Int.Left,
-            'J' => direction == Vector2Int.Down|| direction == Vector2Int.Right,
+            'J' => direction == Vector2Int.Down || direction == Vector2Int.Right,
             '7' => direction == Vector2Int.Up || direction == Vector2Int.Right,
             'L' => direction == Vector2Int.Down || direction == Vector2Int.Left,
         };
 
         private static Vector2Int GetNextDirection(char pipe, Vector2Int direction)
         {
-            return (pipe) switch
+            return pipe switch
             {
                 '|' or '-' => direction,
-                'F'  or 'J'=> new(-direction.Y, -direction.X),
+                'F' or 'J' => new(-direction.Y, -direction.X),
                 '7' or 'L' => new(direction.Y, direction.X)
             };
         }

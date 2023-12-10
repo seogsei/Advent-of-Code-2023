@@ -1,6 +1,6 @@
-﻿namespace AOC2023.Day1
+﻿namespace AOC2023
 {
-    internal static class Solution
+    internal static class Day1
     {
         static readonly string[] arr = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
