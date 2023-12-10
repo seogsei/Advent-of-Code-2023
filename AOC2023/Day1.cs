@@ -6,7 +6,7 @@
 
         public static int Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day1\Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day1Input.txt";
 
             int sum = 0;
 
