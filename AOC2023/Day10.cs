@@ -110,6 +110,7 @@ namespace AOC2023
             'J' => direction == Vector2Int.Down || direction == Vector2Int.Right,
             '7' => direction == Vector2Int.Up || direction == Vector2Int.Right,
             'L' => direction == Vector2Int.Down || direction == Vector2Int.Left,
+            _ => throw new Exception()
         };
 
         private static Vector2Int GetNextDirection(char pipe, Vector2Int direction)
@@ -118,7 +119,8 @@ namespace AOC2023
             {
                 '|' or '-' => direction,
                 'F' or 'J' => new(-direction.Y, -direction.X),
-                '7' or 'L' => new(direction.Y, direction.X)
+                '7' or 'L' => new(direction.Y, direction.X),
+                _ => throw new Exception()
             };
         }
 
