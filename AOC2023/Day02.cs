@@ -1,13 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.IO;
-
-namespace AOC2023
+﻿namespace AOC2023
 {
-    internal static class Day2
+    internal static class Day02
     {
         public static int Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day2Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day02.txt";
 
             //Handle the input
             var games = ParseData(path);
@@ -21,7 +18,7 @@ namespace AOC2023
                 //For part 2
                 sum += game.MinimumRequired().GetPower();
             }
-                
+
             return sum;
         }
 
@@ -46,7 +43,7 @@ namespace AOC2023
             int gameID = ReadGameID(parts[0]);
 
             List<RevealModel> reveals = [];
-            foreach(var str in parts[1].Split(';'))
+            foreach (var str in parts[1].Split(';'))
                 reveals.Add(ReadReveal(str));
 
             return new(gameID, reveals);
@@ -97,7 +94,7 @@ namespace AOC2023
             {
                 RevealModel values = new();
 
-                foreach(var (red, green, blue) in Reveals)
+                foreach (var (red, green, blue) in Reveals)
                 {
                     values.Red = Math.Max(values.Red, red);
                     values.Green = Math.Max(values.Green, green);

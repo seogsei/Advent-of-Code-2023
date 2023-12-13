@@ -1,10 +1,11 @@
 ﻿namespace AOC2023
 {
-    internal static class Day9
+    internal static class Day09
     {
         public static long Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day9Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day09.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
 
             IEnumerable<IEnumerable<int>> data = ReadData(dataStream);
@@ -14,7 +15,7 @@
 
             //Part 2
             long sum = data.Sum(FindPreviousNumber);
-           
+
             return sum;
         }
 
@@ -42,7 +43,7 @@
         private static IEnumerable<IEnumerable<int>> ReadData(StreamReader dataStream)
         {
             string? line;
-            while((line = dataStream.ReadLine()) != null)
+            while ((line = dataStream.ReadLine()) != null)
             {
                 yield return line.Split(' ').Select(int.Parse);
             }

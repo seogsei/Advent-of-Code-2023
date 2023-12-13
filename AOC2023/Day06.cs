@@ -1,10 +1,11 @@
 ﻿namespace AOC2023
 {
-    internal static class Day6
+    internal static class Day06
     {
         public static long Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day6Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day06.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
 
             //Part 1
@@ -25,7 +26,7 @@
             */
 
             //Part 2
-            
+
             RaceData race = ReadDataPart2(dataStream);
 
             var polynomial = new SecondDegreePolynomial(-1, race.RecordTime, -race.Distance);
@@ -33,7 +34,7 @@
             var range = Range.Between((long)Math.Ceiling(polynomial.FirstRoot()), (long)Math.Ceiling(polynomial.SecondRoot()));
 
             return range.Length;
-            
+
         }
 
         private static IEnumerable<RaceData> ReadDataPart1(StreamReader dataStream)
@@ -42,7 +43,7 @@
             var lines = data.Split("\n");
             var timeLine = lines[0].Split(' ', StringSplitOptions.RemoveEmptyEntries);
             var distanceLine = lines[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 1; i < timeLine.Length; i++) 
+            for (int i = 1; i < timeLine.Length; i++)
             {
                 yield return new(long.Parse(timeLine[i]), long.Parse(distanceLine[i]));
             }

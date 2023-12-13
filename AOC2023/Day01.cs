@@ -1,12 +1,12 @@
 ﻿namespace AOC2023
 {
-    internal static class Day1
+    internal static class Day01
     {
         static readonly string[] arr = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
         public static int Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day1Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day01.txt";
 
             int sum = 0;
 

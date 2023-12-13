@@ -1,14 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using System.Numerics;
-
-namespace AOC2023
+﻿namespace AOC2023
 {
-    internal static class Day3
+    internal static class Day03
     {
+        const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day03.txt";
+
         public static int Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day3Input.txt";
             using StreamReader dataStream = new(File.OpenRead(path));
 
             return Part2(dataStream);
@@ -80,7 +77,7 @@ namespace AOC2023
                         int gearRatio = numbers[0] * numbers[1];
                         sum += gearRatio;
                     }
-                        
+
                 }
 
                 previousLine = curLine;
@@ -99,7 +96,7 @@ namespace AOC2023
             return 0;
         }
 
-        private static bool CheckAroundForSpecials(string? previousString, string currentString, string? nextString, int startIdx, int lenght) 
+        private static bool CheckAroundForSpecials(string? previousString, string currentString, string? nextString, int startIdx, int lenght)
         {
             //Check on the current string first
             if (startIdx > 0 && IsSpecialCharacter(currentString[startIdx - 1]))

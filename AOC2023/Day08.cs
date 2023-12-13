@@ -1,10 +1,11 @@
 ﻿namespace AOC2023
 {
-    internal static class Day8
+    internal static class Day08
     {
         public static long Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day8Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day08.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
 
             var (instruction, map) = ReadData(dataStream);
@@ -13,9 +14,9 @@
             //return Iterate(map["AAA"], (x) => x.Name == "ZZZ", instruction, map);
 
             //Part2
-            var startNodes = map.Values.Where((x)=>x.Name.EndsWith('A'));
-            var periods = startNodes.Select((x) => Iterate(x, (y) => y.Name.EndsWith('Z'), instruction, map));       
-            
+            var startNodes = map.Values.Where((x) => x.Name.EndsWith('A'));
+            var periods = startNodes.Select((x) => Iterate(x, (y) => y.Name.EndsWith('Z'), instruction, map));
+
             return periods.Aggregate(LeastCommonMultiple);
         }
 
@@ -58,9 +59,9 @@
                 }
         }
 
-        private static long GreatestCommonDivisor(long a, long b) 
+        private static long GreatestCommonDivisor(long a, long b)
         {
-            while(b != 0) 
+            while (b != 0)
             {
                 long t = b;
                 b = a % b;
@@ -69,7 +70,7 @@
             return a;
         }
 
-        private static long LeastCommonMultiple(long a, long b) 
+        private static long LeastCommonMultiple(long a, long b)
         {
             return a * (b / GreatestCommonDivisor(a, b));
         }

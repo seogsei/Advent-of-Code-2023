@@ -6,7 +6,8 @@ namespace AOC2023
     {
         public static long Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day10Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day10.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
 
             var map = ReadData(dataStream);

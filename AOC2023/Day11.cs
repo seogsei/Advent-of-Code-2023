@@ -1,6 +1,4 @@
-﻿using System.Threading.Channels;
-
-namespace AOC2023
+﻿namespace AOC2023
 {
     internal static class Day11
     {
@@ -11,7 +9,7 @@ namespace AOC2023
 
             List<int> rows = [], columns = [];
             List<Coordinate> galaxies = [];
-            List<(Coordinate, Coordinate)> galaxyPairs= [];
+            List<(Coordinate, Coordinate)> galaxyPairs = [];
 
             //Find the galaxy pairs
             for (int j = 0; j < split.Length; j++)
@@ -22,7 +20,7 @@ namespace AOC2023
                         galaxies.ForEach((other) => galaxyPairs.Add((galaxy, other)));
                         galaxies.Add(galaxy);
                     }
-                        
+
 
             for (int j = 0; j < split.Length; j++)
                 if (!split[j].Contains('#'))
@@ -59,7 +57,7 @@ namespace AOC2023
             int b = Math.Max(p1, p2);
 
             long sum = 0;
-            for(int i = a; i < b; i++)
+            for (int i = a; i < b; i++)
                 sum += costFunction(i);
 
             return sum;
@@ -67,7 +65,8 @@ namespace AOC2023
 
         private static string ReadData()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day11Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day11.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
             return dataStream.ReadToEnd();
         }

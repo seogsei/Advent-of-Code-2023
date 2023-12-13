@@ -1,10 +1,11 @@
 ﻿namespace AOC2023
 {
-    internal static class Day7
+    internal static class Day07
     {
         public static long Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day7Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day06.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
 
             var data = ReadData(dataStream).ToList();
@@ -123,7 +124,7 @@
         private static IEnumerable<(string, int)> ReadData(StreamReader dataStream)
         {
             string? line;
-            while((line = dataStream.ReadLine()) is not null)
+            while ((line = dataStream.ReadLine()) is not null)
             {
                 var parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 

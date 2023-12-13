@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.ComponentModel;
-using System.Net.WebSockets;
-
-namespace AOC2023
+﻿namespace AOC2023
 {
-    internal static class Day5
+    internal static class Day05
     {
         public static uint Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day5Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day05.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
 
             (var seedNumbers, var maps) = ReadData(dataStream);
@@ -22,13 +19,13 @@ namespace AOC2023
             return enumerable.Min();
             */
             //Part 2
-            
+
             List<Range> seedRanges = [];
-            for(int i = 0; i < seedNumbers.Count; i+=2)
+            for (int i = 0; i < seedNumbers.Count; i += 2)
                 seedRanges.Add(new(seedNumbers[i], seedNumbers[i + 1]));
 
             IEnumerable<Range> enumerable = seedRanges;
-            foreach(var map in maps)
+            foreach (var map in maps)
                 enumerable = map.Translate(enumerable);
 
             return enumerable.Min((x) => x.Start);
@@ -50,7 +47,7 @@ namespace AOC2023
         {
             List<Map> result = [];
 
-            foreach (string input in inputs) 
+            foreach (string input in inputs)
             {
                 result.Add(ReadMap(input));
             }
@@ -63,7 +60,7 @@ namespace AOC2023
             var data = input.Split("\n").Skip(1);
 
             List<MapEntry> entries = [];
-            foreach(var entry in data) 
+            foreach (var entry in data)
             {
                 entries.Add(ReadEntry(entry));
             }
@@ -98,11 +95,11 @@ namespace AOC2023
 
                 return value;
             }
-            
+
             public IEnumerable<uint> Translate(IEnumerable<uint> values)
             {
-                foreach (var value in values)                   
-                        yield return Translate(value);
+                foreach (var value in values)
+                    yield return Translate(value);
             }
 
             public IEnumerable<Range> Translate(IEnumerable<Range> ranges)
@@ -114,7 +111,7 @@ namespace AOC2023
 
             public IEnumerable<Range> Translate(Range range)
             {
-                foreach(var entry in Entries)
+                foreach (var entry in Entries)
                 {
                     if (Range.Intersect(range, entry.Source).IsEmpty()) continue;
 

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading.Tasks.Sources;
-
-namespace AOC2023
+﻿namespace AOC2023
 {
-    internal static class Day4
+    internal static class Day04
     {
         public static long Compute()
         {
-            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Day4Input.txt";
+            const string path = @"C:\Users\rapha\source\repos\AOC2023\AOC2023\Input\Day04.txt";
+
             using StreamReader dataStream = new(File.OpenRead(path));
 
             List<ScratchCard> cards = ReadData(dataStream);
@@ -51,7 +45,7 @@ namespace AOC2023
         {
             List<int> list = [];
 
-            string[] numbers = input.Split(' ',StringSplitOptions.RemoveEmptyEntries);
+            string[] numbers = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var number in numbers)
                 list.Add(int.Parse(number));
@@ -72,7 +66,7 @@ namespace AOC2023
 
             public int CalculateScore()
             {
-                int matches = NumberOfMatches();  
+                int matches = NumberOfMatches();
 
                 return matches == 0 ? 0 : 1 << (matches - 1);
             }
