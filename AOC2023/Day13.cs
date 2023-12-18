@@ -6,19 +6,13 @@
 
         public static int Compute()
         {
-            var data = ReadData(path).Split(Environment.NewLine + Environment.NewLine);
+            var data = Utilities.ReadFile(path).Split(Environment.NewLine + Environment.NewLine);
 
             //Part 1 
             //return data.Sum((x) => GetReflectionValue(x, 0));
             
             //Part 2
             return data.Sum((x) => GetReflectionValue(x, 1));
-        }
-
-        private static string ReadData(string path)
-        {
-            using StreamReader dataStream = new(File.OpenRead(path));
-            return dataStream.ReadToEnd();
         }
 
         private static int GetReflectionValue(string data, int numberOfSmudges = 0)
